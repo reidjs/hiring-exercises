@@ -91,8 +91,12 @@ export default {
   },
   methods: {
     login: async function () {
-      await this.$store.dispatch("auth/login", this.form)
-      this.$router.push("dashboard")
+      try {
+        await this.$store.dispatch("auth/login", this.form)
+        this.$router.push("dashboard")
+      } catch (e) {
+        console.log("login failed")
+      }
     },
   },
 }

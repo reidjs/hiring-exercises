@@ -4,7 +4,7 @@
 
 If you are reading this then you're probably talking to us about a technical role at [Pure](https://purepm.co). If so, congratulations!
 
-In order to move forward, we'd like to know a little about how you work. To that end, this repository contains a **short, time-boxed** (approximately 1h 30m max) that you can use demonstrate your skills and abilities.
+In order to move forward, we'd like to know a little about how you work. To that end, this repository contains a **short, time-boxed** (approximately 2 hours) that you can use demonstrate your skills and abilities.
 
 We follow a lightweight agile development process at Pure, and so have presented a small set of user stories to work through. There is no grading or scoring, nor is it pass-fail, rather these are meant to serve a sample of your reductive thought processes as an engineer.
 
@@ -24,13 +24,13 @@ We know that the technical hiring processes in our industry are still evolving. 
 
 1. We would like you to work through the User Stories below, adding the relevant functionality to the application.
 
-2. Create a fork of the repository in your own GitHub account, and add @PureEngHiring as a private collaborator.
+2. **Create a fork** of the repository **in your own GitHub account**, and **add @PureEngHiring** as a private collaborator.
 
 3. When you are comfortable with your changes notify us through GitHub or, email us at careers@purepm.co and we'll review it withn 48 hours and respond back to you with objective feedback.
 
-4. We are particularly interested in your approach to testing, and how you factor your code for readibility and extensibility by others.
+4. We are particularly interested in your approach to **testing**, and how you **factor** your code for **readability and extensibility** by others.
 
-5. Complete as much of the exercise as you can in 1h 30m or less. Don't worry if you don't complete all of the stories.
+5. Complete as much of the exercise as you can in 2 hours or less. Don't worry if you don't complete all of the stories.
 
 ## Tech setup
 
