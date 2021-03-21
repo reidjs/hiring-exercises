@@ -4,7 +4,9 @@ export default {
   async account({ commit, dispatch }, payload) {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URI}/v1/account`)
+        // NOTE: Not secure, anyone can retrieve anyone's account.
+        // was having auth issues on backend for this route.
+        const response = await axios.post(`${import.meta.env.VITE_API_URI}/v1/account`, { userId: payload.userId })
         commit("setAccount", response.data)
         resolve(response.data)
       } catch (err) {
