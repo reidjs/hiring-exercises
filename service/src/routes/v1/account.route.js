@@ -5,6 +5,7 @@ const router = express.Router();
 
 // NOTE: Removed auth from account due to auth middleware issues.
 router.route('/').post(accountController.getAccount);
+router.route('/transactions').post(accountController.getAccountTransactions);
 
 module.exports = router;
 

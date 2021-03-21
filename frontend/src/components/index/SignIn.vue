@@ -53,6 +53,9 @@
               >
                 Log in
               </button>
+              <div class="mt-2 text-red-400" v-if="form.error">
+                {{ this.error }}
+              </div>
             </div>
           </Form>
         </div>
@@ -87,15 +90,16 @@ export default {
         email: null,
         password: null,
       },
+      error: false,
     }
   },
   methods: {
     login: async function () {
       try {
-        await this.$store.dispatch("auth/login", this.form)
+        const res = await this.$store.dispatch("auth/login", this.form)
         this.$router.push("dashboard")
       } catch (e) {
-        console.log("login failed")
+        this.error = 'This account does not exist.'
       }
     },
   },

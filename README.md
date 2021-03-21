@@ -38,6 +38,7 @@ The back-end service uses dockerized services, to save having to install each co
 
 1. Clone a copy of the repository
 2. Install the relevant tools in each of the `frontend` and `service` folders with `npm install`
+Reid's Note: I had to run yarn install in the service folder to get docker:dev to work properly
 3. In the `service` folder, create a `.env` file by copying the `.env.example` file e.g. `cp .env.example .env`
 4. Spin up the backend service with `npm run docker:dev` in the `service` folder
 5. Spin up the frontend app with `npm run dev` in the `frontend` folder
@@ -52,6 +53,11 @@ Any questions, drop us a line at careers@purepm.co.
 It may be useful to insert seed data into the running MongoDB instance. To do so, you can optionally install the [Mongo Seeding CLI](https://github.com/pkosiec/mongo-seeding/tree/master/cli) and follow instructions there to seed your Mongo instance.
 
 There is sample seed data under the `/data` folder.
+
+Reid's Note:
+Start the backend server then run:
+
+`seed -u 'mongodb://127.0.0.1:27017/investor-service' --drop-database ./data`
 
 ## Questions
 

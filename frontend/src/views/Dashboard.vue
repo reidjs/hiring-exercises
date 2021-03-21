@@ -51,8 +51,12 @@
       <main>
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div class="mt-6 px-4 py-6 sm:px-0">
-            <headline-stats />
-            <investment-table class="mt-6" />
+            <headline-stats
+              :initialInvestmentCents="this.initialInvestmentCents"
+              :accountEstablishedDate="this.accountEstablishedDate"
+              :interestRate="this.interestRate"
+            />
+            <investment-table :transactions="this.transactions" class="mt-6" />
           </div>
         </div>
       </main>
@@ -63,8 +67,44 @@
 <script>
 import InvestmentTable from "../components/dashboard/InvestmentTable.vue"
 import HeadlineStats from "../components/dashboard/HeadlineStats.vue"
+import { mapGetters } from 'vuex'
 export default {
   name: "Dashboard",
   components: { InvestmentTable, HeadlineStats },
+  computed: {
+    ...mapGetters({
+      user: 'auth/user'
+    }),
+  },
+  data() {
+    return {
+      initialInvestmentCents: undefined,
+      accountEstablishedDate: undefined,
+      interestRate: undefined,
+      transactions: undefined,
+    }
+  },
+  mounted() {
+    (async() => {
+      try {
+        const res = await this.$store.dispatch('account/account', {userId: this.user.user.id})
+        const accountId = res.id
+        const res2 = await this.$store.dispatch('account/transactions', { accountId })
+        const users = res2.users
+        const txns = res2.transactions
+
+        // Map related user info to each transaction
+        this.transactions = txns.map(txn => {
+          return Object.assign({}, txn, { user: users[txn.id]})
+        })
+
+        this.initialInvestmentCents = res.initialInvestmentCents
+        this.accountEstablishedDate = res.accountEstablishedDate
+        this.interestRate = res.interestRate
+      } catch (e) {
+        console.error('err: ', e)
+      }
+    })()
+  }
 }
 </script>
